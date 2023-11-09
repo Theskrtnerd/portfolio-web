@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle="Projects";
+import { styles } from "../styles/tailwindStyle";
+import Navbar from "../components/Navbar.astro";
+import Background from "../components/Background.astro";
+import Card from "../components/Card.astro";
+import '../styles/cards.css';
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <div class="w-full flex flex-col relative overflow-x-hidden overflow-y-hidden">
+		<Navbar pageTitle={pageTitle}/>
+        <div class=`flex flex-col items-center ${styles.mainPadding}`>
+            <div class=`${styles.xl3Text} font-semibold text-text`>Here are some of my projects</div>
+            <div id="cards" class="pt-8 flex flex-wrap gap-2 justify-center">
+                <Card title="Soccer Discord Bot" description="A Discord with your favourite soccer quiz games" href="#"/>
+                <Card title="Astro Landing Page" description="A great template landing page with all sections included. Perfect for starters." href="https://landing-xineohperif.netlify.app"/>
+                <Card title="Doodle Duo Game" description="A two-player game created using C++ and SFML" href="#"/>
+                <Card title="Irreducibility Checker" description="A python script that checks the irreducibility of a polynomial" href="#"/>
+                <Card title="Newtab Extension" description="A Chrome extension that replaces your newtab page with your own customization" href="#"/>
+                <Card title="Portfolio Website" description="A portfolio website that you are looking at right now :D" href="https://portfolio-xineohperif.netlify.app"/>
+                <Card title="Irreducibility Checker" description="A python script that checks the irreducibility of a polynomial" href="#"/>
+                <Card title="Newtab Extension" description="A Chrome extension that replaces your newtab page with your own customization" href="#"/>
+                <Card title="See my GIthub" description="A portfolio website that you are looking at right now :D" href="https://portfolio-xineohperif.netlify.app"/>
+            </div>
+        </div>
+    </div>
+    <script>
+        import '../scripts/cards.js'
+    </script>
+</BaseLayout>

@@ -1,0 +1,12 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle="Blog";
+import { styles } from "../styles/tailwindStyle";
+import Navbar from "../components/Navbar.astro";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <div class="h-screen w-full flex flex-col">
+		<Navbar pageTitle={pageTitle}/>
+    </div>
+</BaseLayout>

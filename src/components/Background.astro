@@ -1,0 +1,44 @@
+<div>
+    <div id="circle1" class="overflow-hidden top-[10%] left-[10%] w-[40vw] h-[40vw] bg-accent opacity-10 -z-10 blur-xl mix-blend-lighten transition-all duration-2000 ease-linear rounded-full absolute "></div>
+    <div id="circle2" class="overflow-hidden bottom-[10%] right-[10%] w-[40vw] h-[40vw] bg-primary opacity-10 -z-10 blur-xl mix-blend-lighten transition-all duration-2000 ease-linear rounded-full absolute "></div>
+</div>
+
+<script>
+function backgroundAnimation() {
+    const circle1 = document.getElementById("circle1");
+    const circle2 = document.getElementById("circle2");
+    const positions1 = [
+    "top-[10%] left-[10%]",
+    "top-[11%] left-[78%]",
+    "top-[-12%] left-[11%]",
+    "top-[9%] left-[80%]",
+    ];
+    const positions2 = [
+    "bottom-[10%] right-[10%]",
+    "bottom-[11%] right-[78%]",
+    "bottom-[-12%] right-[11%]",
+    "bottom-[9%] right-[80%]",
+    ];
+    const numPositions1 = positions1.length;
+
+
+    let currentPosition = 0;
+
+    function moveCircle() {
+    // Move the circle to the next position
+    currentPosition = (currentPosition + 1) % numPositions1;
+    circle1.className = `overflow-hidden w-[40vw] h-[40vw] bg-accent opacity-10 -z-10 blur-xl mix-blend-lighten transition-all duration-[10000ms] ease-linear rounded-full absolute ${positions1[currentPosition]}`;
+    circle2.className = `overflow-hidden w-[40vw] h-[40vw] bg-primary opacity-10 -z-10 blur-xl mix-blend-lighten transition-all duration-[10000ms] ease-linear rounded-full absolute ${positions2[currentPosition]}`;
+
+    // Trigger the animation loop with a timeout
+    setTimeout(moveCircle, 11000);
+    }
+
+    moveCircle();
+}
+
+backgroundAnimation();
+
+document.addEventListener('astro:page-load', backgroundAnimation);
+
+</script>

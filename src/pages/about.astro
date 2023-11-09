@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle="About";
+import { styles } from "../styles/tailwindStyle";
+import Navbar from "../components/Navbar.astro";
+import { Image } from "astro:assets";
+import avaImage from '../images/ava.jpg';
+import Background from "../components/Background.astro";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <div class="h-screen w-full flex flex-col relative overflow-hidden">
+        <Background/>
+		<Navbar pageTitle={pageTitle}/>
+        <div class=`${styles.mainPadding} grow flex-col flex lg:flex-row items-center gap-[5vh] md:gap-[5%]`>
+            <div>
+                <Image class="w-[60vw] md:w-[45vw] lg:w-[30vw] rounded-full" src={avaImage} alt="An avatar image" />
+            </div>
+            <div class="md:w-2/3 flex flex-col text-text">
+                <div class=`${styles.xl3Text} font-semibold` data-value="Hello again, I'm Bach Tran" id="scrabble">About me (try to hover me)</div>
+                <div class= `${styles.mdText} pt-2 sm:pt-4 md:pt-6 flex`>
+                    Currently a first-year student at the University of Adelaide, I'm interested in applying technology, especially AI/ML, to the healthcare industry. Since I was a small child, I have always loved mathematics. I was mesmerized by how a difficult math problem can be solved using a series of simple logic.
+                </div>
+                <div class=`${styles.mdText} pt-2`>
+                    Growing older, I discovered programming, which was a whole new world. From web and mobile development to data science and machine learning, each time I discovered something new, I immediately learned the tool required from YouTube, whether it's Django, Flutter, etc.
+                </div>
+                <div class=`${styles.mdText} pt-2`>
+                    As both of my parents are medical doctors, I want to delve myself into MedTech and continue my family's tradition of saving people's lives, but with my own knowledge and technology.
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        import '../scripts/scrabble.js'
+    </script>
+</BaseLayout>

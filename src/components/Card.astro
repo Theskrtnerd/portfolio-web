@@ -1,0 +1,10 @@
+---
+const {title, description, href} = Astro.props;
+---
+
+<a class="card group" href={href}>
+  <div class="card-content flex flex-col p-4">
+    <div class="text-xl font-semibold text-text group-hover:text-primary">{title}</div>
+    <div class="text-sm text-sec-300 pt-4">{description}</div>
+  </div>
+</a>

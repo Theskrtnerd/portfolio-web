@@ -6,7 +6,7 @@ import { Icon } from 'astro-icon';
 
 <div x-data="{ open: false }">
     <div class=`flex w-full justify-between ${styles.navbarPadding} bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-80`>
-        <Icon name="icon" class="h-8 w-8 md:h-12 md:w-12"/>
+        <a href="/" class="hover:scale-110 ease-in-out transition delay-150"><Icon name="icon" class="h-8 w-8 md:h-12 md:w-12"/></a>
         <button x-on:click="open = ! open">
             <Icon name="heroicons-solid:menu-alt-3" class="text-text h-8 w-8 md:h-12 md:w-12 block md:hidden"/>
         </button>

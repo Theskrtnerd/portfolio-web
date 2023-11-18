@@ -7,6 +7,12 @@
     flex-wrap: wrap;
     gap: 8px;  
     width: 100%;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  #cards::-webkit-scrollbar {
+    display: none;
   }
   
   #cards:hover > .card::after {

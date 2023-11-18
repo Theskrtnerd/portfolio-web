@@ -6,10 +6,11 @@ import Navbar from "../components/Navbar.astro";
 import Background from "../components/Background.astro";
 import Card from "../components/Card.astro";
 import '../styles/cards.css';
+import '../styles/global.css';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-    <div class="w-full flex flex-col relative overflow-x-hidden overflow-y-hidden">
+    <div class="w-full flex flex-col">
 		<Navbar pageTitle={pageTitle}/>
         <div class=`flex flex-col items-center ${styles.mainPadding}`>
             <div class=`${styles.xl3Text} font-semibold text-text`>Here are some of my projects</div>

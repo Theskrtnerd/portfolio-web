@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const pageTitle="Blog";
+import { styles } from "../../styles/tailwindStyle";
+import Navbar from "../../components/Navbar.astro";
+import { getCollection, type CollectionEntry } from 'astro:content';
+import PostList from "../../components/PostList.astro";
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('posts');
+
+  const tags: string[] = [];
+
+  // using .toLowerCase() here to get rid of case sensitivity
+  allPosts.forEach((post) => {
+    post.data.tags.forEach((tag) => {
+      tags.push(tag.toLowerCase());
+    });
+  });
+
+  // using a new array from a set, we can get rid of duplicate tags 
+  return Array.from(new Set(tags)).map((tag) => {
+    return {
+      params: { tag },
+      // only keep the blogPosts that contain the tag itself
+      props: {
+        blogPosts: allPosts.filter((post) => post.data.tags.map(tag => tag.toLowerCase()).includes(tag)),
+      }
+    };
+  });
+}
+
+interface Props {
+  tag: string;
+  blogPosts: CollectionEntry<'posts'>[];
+}
+
+const { blogPosts } = Astro.props;
+const { tag } = Astro.params;
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <div class="h-screen w-full flex flex-col">
+		  <Navbar pageTitle={pageTitle}/>
+      <div class=`${styles.blogPadding} gap-4 flex flex-col`>
+        <div class=`${styles.xl3Text} font-semibold text-text flex justify-center gap-4`>Blog tagged with <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">{tag}</span></div>
+        <PostList posts={blogPosts}/>
+      </div>
+    </div>
+</BaseLayout>

@@ -1,9 +1,9 @@
 ---
 date: 08/11/2022
-categories: ['music','lifestyle']
+tags: ['music','lifestyle']
 title: The newtab to boost your productivity by 10000 times
 image: ./images/chrome-newtab.jpg
-description: "Ever wanted to code an entire game from scratch? "
+description: "Customized newtab = 🔥🔥🔥"
 
 ---
 Override Chrome’s new tab page to create a more personalized browsing experience

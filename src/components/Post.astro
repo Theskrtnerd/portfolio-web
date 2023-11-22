@@ -26,6 +26,6 @@ import { styles } from "../styles/tailwindStyle";
     <div class="flex pt-4 w-full gap-2 flex-wrap items-center">
         <div class=`${styles.smText} text-primary`>{post.data.date}</div>
         <div class=`${styles.smText} text-primary`>&middot</div>
-        {post.data.categories.map((category) => <div class="text-text text-sm py-1 px-2 rounded-full border-2 border-primary hover:bg-primary">{category}</div>)}
+        {post.data.tags.map((tag) => <a href={`/tags/${tag}`} class="text-text text-sm py-1 px-2 rounded-full border-2 border-primary hover:bg-primary">{tag}</a>)}
     </div>
 </article>

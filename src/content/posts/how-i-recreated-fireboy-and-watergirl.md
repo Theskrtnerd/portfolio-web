@@ -1,6 +1,6 @@
 ---
 date: 08/09/2023
-categories: ['cpp','game', 'oop']
+tags: ['cpp','game', 'oop']
 title: 'How I recreated the "Fireboy & Watergirl" game from scratch'
 image: ./images/doodle-duo.png
 description: "Ever wanted to code an entire game from scratch?"

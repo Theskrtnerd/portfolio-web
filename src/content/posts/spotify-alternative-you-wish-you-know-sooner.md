@@ -1,10 +1,9 @@
 ---
 date: 08/11/2022
-categories: ['music','lifestyle']
+tags: ['music','lifestyle']
 title: Spotify alternative you wish you know sooner
 image: ./images/spotify.jpg
-description: "Ever wanted to code an entire game from scratch? "
-
+description: "Never pay for Spotify again!!!"
 ---
 Spotify is becoming one of the most popular applications, and an irreplaceable software on your devices. But its downsize is that it costs money 🙂. Of course, it's not too expensive, rather cheap for many people. 
 

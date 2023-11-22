@@ -1,9 +1,9 @@
 ---
 date: 26/08/2023
-categories: ['data_visualisation', 'research', 'python']
+tags: ['data_visualisation', 'research', 'python']
 title: Soccer Discord Bot to make your Covid days much better
 image: ./images/soccer-discord-bot.png
-description: "Ever wanted to code an entire game from scratch? "
+description: "Your favorite games: Missing 11, Guess the player, Tic-tac-toe"
 
 ---
 

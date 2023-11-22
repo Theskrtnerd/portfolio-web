@@ -1,0 +1,13 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Post from './Post.astro';
+type Props = {
+    posts: CollectionEntry<'posts'>[];
+};
+const { posts } = Astro.props;
+import { styles } from "../styles/tailwindStyle";   
+---
+
+<div class=`grid lg:grid-cols-2 ${styles.postListGap}`>
+    {posts.map((post) => <Post post={post} />)}
+</div>

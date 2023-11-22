@@ -1,0 +1,31 @@
+---
+import {Image} from 'astro:assets';
+import { getEntryBySlug, type CollectionEntry } from 'astro:content';
+type Props = {
+    post: CollectionEntry<'posts'>;
+};
+const { post } = Astro.props;
+import { styles } from "../styles/tailwindStyle";
+---
+
+<article>
+    <a class="group" href={`/blog/${post.slug}`}>
+        <Image
+        src={post.data.image as string}
+        transition:name={`img-${post.slug}`}
+        width={1024}
+        height={1024/1.5}
+        alt={post.data.title}
+        class="aspect-video w-full rounded-xl lg:rounded-2xl shadow-2xl mt-4 mb-4 object-cover"
+        format="webp"
+        />
+        <div class=`${styles.lgText} text-justify font-bold text-text underline decoration-transparent decoration-4 group-hover:decoration-accent`>{post.data.title}</div>
+        <div class=`text-sec-300 text-justify pt-2`>{post.data.description}</div>
+    </a>
+
+    <div class="flex pt-4 w-full gap-2 flex-wrap items-center">
+        <div class=`${styles.smText} text-primary`>{post.data.date}</div>
+        <div class=`${styles.smText} text-primary`>&middot</div>
+        {post.data.categories.map((category) => <div class="text-text text-sm py-1 px-2 rounded-full border-2 border-primary hover:bg-primary">{category}</div>)}
+    </div>
+</article>

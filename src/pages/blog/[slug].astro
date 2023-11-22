@@ -1,0 +1,46 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { styles } from "../../styles/tailwindStyle";
+import Navbar from "../../components/Navbar.astro";
+import {Image} from "astro:assets";
+
+export const getStaticPaths = async () => {
+    const posts = await getCollection("posts");
+    const paths = posts.map(post=>{
+        return {
+            params: { slug: post.slug }, props: { post }
+        }
+    })
+    return paths;
+}
+
+type Props = {
+    post: CollectionEntry<"posts">
+}
+
+const {post} = Astro.props;
+const {Content} = await post.render();
+---
+
+<BaseLayout pageTitle={post.data.title}>
+    <Navbar/>
+    <div class=`${styles.blogPadding} prose-invert text-white lg:prose-xl w-full`>
+        <div class=`${styles.xl3Text} font-extrabold text-white`>{post.data.title}</div>
+        <div class="flex pt-4 w-full gap-2 flex-wrap items-center">
+            <div class=`${styles.lgText} text-primary`>{post.data.date}</div>
+            <div class=`${styles.lgText} text-primary`>&middot</div>
+            {post.data.categories.map((category) => <div class="text-text text-sm md:text-md py-1 px-2 rounded-full border-2 border-primary hover:bg-primary">{category}</div>)}
+        </div>
+        <Image
+            src={post.data.image as string}
+            width={1024}
+            height={1024/1.5}
+            alt={post.data.title}
+            class="aspect-video w-full rounded-2xl shadow-xl my-8 md:my-14 lg:my-14 object-cover"
+            format="webp"
+            transition:name={`img-${post.slug}`}
+        />
+        <Content/>
+    </div>
+</BaseLayout>

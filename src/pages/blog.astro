@@ -3,10 +3,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle="Blog";
 import { styles } from "../styles/tailwindStyle";
 import Navbar from "../components/Navbar.astro";
+import { getCollection } from 'astro:content';
+const posts = await getCollection("posts");
+import PostList from "../components/PostList.astro";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
     <div class="h-screen w-full flex flex-col">
-		<Navbar pageTitle={pageTitle}/>
+		  <Navbar pageTitle={pageTitle}/>
+      <div class=`${styles.blogPadding} gap-4 flex flex-col`>
+        <div class=`${styles.xl3Text} font-semibold text-text flex justify-center`>Please read my blog</div>
+        <PostList posts={posts}/>
+      </div>
     </div>
 </BaseLayout>

@@ -4,8 +4,8 @@ function initTyped() {
   console.log("Running Typed...")
   const typed = new Typed('#typed', {
       strings: ['a Computer Science student', 'an Aspiring Software Engineer'],
-      typeSpeed: 50,
-      backSpeed: 20,
+      typeSpeed: 20,
+      backSpeed: 10,
       loop: true,
       loopCount: 3,
       smartBackspace: true,

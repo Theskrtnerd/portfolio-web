@@ -1,74 +1,52 @@
 import * as THREE from 'three';
-import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { MTLLoader } from 'three/addons/loaders/MTLLoader.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import SplineLoader from '@splinetool/loader';
 
-function running3DModel(){
-    const scene = new THREE.Scene();
-    scene.background = null;
-    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+// camera
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 70, 100000);
+camera.position.set(675.76, 178.47, 227.72);
+camera.quaternion.setFromEuler(new THREE.Euler(-0.66, 1.17, 0.62));
 
-    const container = document.getElementById("3d-container");
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
+// scene
+const scene = new THREE.Scene();
 
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.target.set(15, 49, 0);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
-    controls.rotateSpeed = 0.1;
-    controls.zoomSpeed = 1.2;
+// spline scene
+const loader = new SplineLoader();
+loader.load(
+  'https://prod.spline.design/9RXDUkNPb6mkqfs1/scene.splinecode',
+  (splineScene) => {
+    scene.add(splineScene);
+  }
+);
 
-    function resizeRenderer() {
-        const containerWidth = container.clientWidth;
-        const containerHeight = container.clientHeight;
-        
-        // Set the renderer and camera dimensions to match the container's dimensions
-        renderer.setSize(containerWidth, containerHeight);
-        camera.aspect = containerWidth / containerHeight;
-        camera.updateProjectionMatrix();
-    }
+// renderer
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setAnimationLoop(animate);
+document.body.appendChild(renderer.domElement);
 
-    container.appendChild(renderer.domElement);
+// scene settings
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFShadowMap;
 
-    window.addEventListener('resize', resizeRenderer);
+scene.background = new THREE.Color('#111111');
+renderer.setClearAlpha(1);
 
-    resizeRenderer();
+// orbit controls
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.125;
 
-    container.appendChild(renderer.domElement);
-
-    let objModel;
-    const objLoader = new OBJLoader();
-    const mtlLoader = new MTLLoader();
-    mtlLoader.load('models/tdb.mtl', (mtl) => {
-        mtl.preload();
-        objLoader.setMaterials(mtl);
-        objLoader.load('models/tdb.obj', (object) => {
-        object.scale.x = object.scale.y = object.scale.z = 0.45;
-        object.rotation.x += 0.6
-        object.rotation.y += 0.2
-        object.rotation.z -= 0.1
-
-        scene.add(object)
-        objModel = object;
-        });
-    });
-
-    const ambientLight = new THREE.AmbientLight( 0xffffff, 0.4 );
-    scene.add( ambientLight );
-
-    const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.8 );
-    directionalLight.position.set( 100, 100, 0 );
-    scene.add( directionalLight );
-
-    camera.position.set(15,49,100);
-
-    function animate() {
-        requestAnimationFrame( animate );
-        renderer.render( scene, camera );
-    }
-
-    animate();
+window.addEventListener('resize', onWindowResize);
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
-running3DModel()
-document.addEventListener('astro:after-swap', running3DModel);
+function animate(time) {
+  controls.update();
+  renderer.render(scene, camera);
+}
+
+document.addEventListener('astro:after-swap', animate);

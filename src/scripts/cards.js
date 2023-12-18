@@ -1,3 +1,5 @@
+
+
 function card(){
     document.getElementById("cards").onmousemove = e => {
       for(const card of document.getElementsByClassName("card")) {
@@ -11,6 +13,7 @@ function card(){
     }
   }
   
-card();
+
 
 document.addEventListener('astro:after-swap', card);
+card();

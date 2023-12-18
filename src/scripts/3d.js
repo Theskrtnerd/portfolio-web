@@ -49,4 +49,4 @@ function animate(time) {
   renderer.render(scene, camera);
 }
 
-document.addEventListener('astro:after-swap', animate);
+document.addEventListener('astro:page-load', animate);

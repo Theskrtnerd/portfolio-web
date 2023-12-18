@@ -14,6 +14,5 @@ function card(){
   }
   
 
-
-document.addEventListener('astro:after-swap', card);
 card();
+document.addEventListener('astro:page-load', card);

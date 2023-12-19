@@ -5,6 +5,7 @@ import { styles } from "../styles/tailwindStyle";
 import Navbar from "../components/Navbar.astro";
 import { Icon } from "astro-icon";
 import Background from "../components/Background.astro";
+import EDModel from "../components/EDModel.svelte";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -36,7 +37,7 @@ import Background from "../components/Background.astro";
 				</div>
 			</div>
 			<div class="hidden lg:block w-1/3 h-[95%]">
-					<spline-viewer url="https://prod.spline.design/rrxJXcQFcyNpCUSD/scene.splinecode"></spline-viewer>
+				<EDModel client:load/>
 			</div>
 		</div>
 	</div>

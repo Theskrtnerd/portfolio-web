@@ -1,6 +1,6 @@
 
 function initScrabble() {
-    let letters = "ABCDEFGHILKLNOPQRSTUIIIIYZ";
+    let letters = "ABCDEFGHILILNOPQRSTUIIIIYZ";
     letters = letters.toLowerCase();
 
     let interval = null;

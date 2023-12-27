@@ -12,7 +12,7 @@ function initRemove() {
                 logoElement.remove();
             }
         }
-    }, 100); // Check every 100 milliseconds
+    }, 200); // Check every 100 milliseconds
 }
 
 initRemove(); // Call it initially as well

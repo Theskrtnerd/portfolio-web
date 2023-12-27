@@ -1,12 +1,11 @@
 ---
 date: 08/09/2023
 tags: ['cpp','game', 'oop']
-title: 'How I recreated the "Fireboy & Watergirl" game from scratch'
+title: 'How I created a game from scratch'
 image: ./images/doodle-duo.png
 description: "Ever wanted to code an entire game from scratch?"
 ---
-
-Ever wanted to code an entire game from scratch? 
+Ever wanted to code an entire game from scratch?
 
 ## Introduction
 
@@ -23,4 +22,3 @@ Then we split the tasks, and started coding some basic stuff right away. Some re
 At first, we had a lot of problems using Git & Github, as we didn't know how to merge conflicts and go to different branches before. Our temporary solution at the time was to work at different time (lol). My friend would work on the project in the day, and I would work on it at night. But after some time, I went on Youtube to learn more about Git, and finally knew how to merge all the conflict and resolve the Git problem.
 
 About our game mechanism and how it works. So basically, when the game started, we use a function 'draw' to display all the GameObjects on the window, and after each iteration, we update the objects by calling that 'draw' function again. But before each iteration, we listen for any user interaction, e.g. User moves the character, and update the position of that character.
-

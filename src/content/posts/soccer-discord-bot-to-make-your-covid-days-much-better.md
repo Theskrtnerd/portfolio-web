@@ -4,9 +4,7 @@ tags: ['data_visualisation', 'research', 'python']
 title: Soccer Discord Bot to make your Covid days much better
 image: ./images/soccer-discord-bot.png
 description: "Your favorite games: Missing 11, Guess the player, Tic-tac-toe"
-
 ---
-
 During the legendary (and nightmare) Covid days, my life is stuck around studying online, and depression. Luckily, there was Discord and my friends ✨. Talking and playing games with my friends was so fun, and Discord seems to be my most frequently used app during those tough times.
 
 Then, out of curiosity, we found out about Discord bots, especially the Game Discord Bots, that we can play games using them. But unfortunately, our favourite games-soccer games- weren't available on the Discord bots at the time.

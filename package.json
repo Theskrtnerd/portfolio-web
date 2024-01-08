@@ -18,7 +18,7 @@
     "@splinetool/loader": "^0.9.523",
     "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
     "astro": "^4.0.6",
-    "astro-icon": "^0.8.2",
+    "astro-icon": "^1.0.2",
     "rehype-mathjax": "^4.0.3",
     "remark": "^14.0.3",
     "remark-math": "^5.0.0",
@@ -30,6 +30,12 @@
     "typed.js": "^2.0.16"
   },
   "devDependencies": {
+    "@iconify-json/bi": "^1.1.23",
+    "@iconify-json/devicon-plain": "^1.1.33",
+    "@iconify-json/fa": "^1.1.8",
+    "@iconify-json/heroicons-solid": "^1.1.11",
+    "@iconify-json/mdi": "^1.1.64",
+    "@iconify-json/simple-icons": "^1.1.87",
     "@tailwindcss/typography": "^0.5.10"
   }
 }

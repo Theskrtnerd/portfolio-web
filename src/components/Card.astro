@@ -1,10 +1,18 @@
 ---
-const {title, description, href} = Astro.props;
+const { title, description, href, iconNames } = Astro.props;
+import { Icon } from 'astro-icon/components';
 ---
 
 <a class="card group" href={href}>
-  <div class="card-content flex flex-col p-4">
-    <div class="text-xl font-semibold text-text group-hover:text-primary">{title}</div>
-    <div class="text-sm text-sec-300 pt-4">{description}</div>
+  <div class="card-content flex flex-col px-4 py-6 justify-between">
+    <div>
+      <div class="text-lg font-semibold text-text group-hover:text-primary">{title}</div>
+      <div class="text-sm text-sec-300 pt-3">{description}</div>
+    </div>
+    <div class="flex gap-2">
+      {iconNames.map((iconName) => (
+        <Icon name={iconName} class="text-text h-6 w-6"/>
+      ))}
+    </div>
   </div>
 </a>

@@ -1,33 +1,111 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const pageTitle="Projects";
+const pageTitle = "Projects";
 import { styles } from "../styles/tailwindStyle";
 import Navbar from "../components/Navbar.astro";
 import Background from "../components/Background.astro";
 import Card from "../components/Card.astro";
-import '../styles/cards.css';
-import '../styles/global.css';
+import "../styles/cards.css";
+import "../styles/global.css";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
     <div class="w-full flex flex-col">
-		<Navbar pageTitle={pageTitle}/>
+        <Navbar pageTitle={pageTitle} />
         <div class=`flex flex-col items-center ${styles.mainPadding}`>
-            <div class=`${styles.xl3Text} font-semibold text-text`>Here are some of my projects</div>
+            <div class=`${styles.xl3Text} font-semibold text-text`>
+                Here are some of my projects
+            </div>
             <div id="cards" class="pt-8 flex flex-wrap gap-2 justify-center">
-                <Card title="Soccer Discord Bot" description="A Discord with your favourite soccer quiz games" href="#"/>
-                <Card title="Astro Landing Page" description="A great template landing page with all sections included. Perfect for starters." href="https://landing-xineohperif.netlify.app"/>
-                <Card title="Doodle Duo Game" description="A two-player game created using C++ and SFML" href="#"/>
-                <Card title="Irreducibility Checker" description="A python script that checks the irreducibility of a polynomial" href="#"/>
-                <Card title="Newtab Extension" description="A Chrome extension that replaces your newtab page with your own customization" href="#"/>
-                <Card title="Portfolio Website" description="A portfolio website that you are looking at right now :D" href="https://portfolio-xineohperif.netlify.app"/>
-                <Card title="Irreducibility Checker" description="A python script that checks the irreducibility of a polynomial" href="#"/>
-                <Card title="Newtab Extension" description="A Chrome extension that replaces your newtab page with your own customization" href="#"/>
-                <Card title="See my GIthub" description="A portfolio website that you are looking at right now :D" href="https://portfolio-xineohperif.netlify.app"/>
+                <Card
+                    title="Soccer Discord Bot"
+                    description="Soccer Discord bot your favourite soccer games ⚽ like Missing 11, Guess the Player, etc."
+                    href="https://github.com/Theskrtnerd/soccer-discord-bot"
+                    iconNames={["devicon-plain:python", "bi:discord"]}
+                />
+                <Card
+                    title="Personal Portfolio Website"
+                    description="The personal portoflio you're looking at right now 😁"
+                    href="https://xineohperif.netlify.app"
+                    iconNames={[
+                        "devicon-plain:astro",
+                        "mdi:tailwind",
+                        "devicon-plain:svelte",
+                    ]}
+                />
+                <Card
+                    title="Doodle Duo Game"
+                    description="A two-player 2D platformer game created using C++ and SFML, with generated levels and obstacles 💃🕺"
+                    href="https://github.com/Theskrtnerd/doodle-duo"
+                    iconNames={["devicon-plain:cplusplus", "simple-icons:sfml"]}
+                />
+                <Card
+                    title="Obesity Rate Correlation Analysis"
+                    description="A data analysis project that analyzes the correlation between obesity rate and other factors 📊"
+                    href="#"
+                    iconNames={[
+                        "devicon-plain:python",
+                        "simple-icons:selenium",
+                    ]}
+                />
+                <Card
+                    title="Irreducibility Checker"
+                    description="A Python script that checks the irreducibility of a polynomial using a variety of criterions like Eisenstein's, Perron's, etc."
+                    href="https://github.com/Theskrtnerd/check-irreducible-polynomial"
+                    iconNames={["devicon-plain:python"]}
+                />
+                <Card
+                    title="Event Management QR Web App"
+                    description="A web app that generates QR codes for events and scans them to check-in attendees 📱"
+                    href="https://xineoheperif.pythonanywhere.com"
+                    iconNames={[
+                        "devicon-plain:django",
+                        "mdi:react",
+                        "mdi:tailwind",
+                        "mdi:webpack",
+                    ]}
+                />
+                <Card
+                    title="Custom Newtab"
+                    description="A Chrome extension that replaces your newtab page with your own customization, with Google Calendar integrated 📅"
+                    href="#"
+                    iconNames={[
+                        "mdi:language-javascript",
+                        "fa:chrome",
+                        "simple-icons:googlecalendar",
+                    ]}
+                />
+                <Card
+                    title="Budi Landing Page"
+                    description="The landing page for the Budi startup, a startup aims to eliminate the expensive shipping costs we pay online."
+                    href="https://budi-landing-page.netlify.app"
+                    iconNames={[
+                        "devicon-plain:astro",
+                        "mdi:react",
+                        "mdi:tailwind",
+                    ]}
+                />
+                <Card
+                    title="AUMS Website"
+                    description="The website for the Adelaide University Mathematics Society, the best society in Adelaide University 😎"
+                    href="https://aums.org.au"
+                    iconNames={[
+                        "devicon-plain:astro",
+                        "mdi:react",
+                        "mdi:tailwind",
+                        "devicon-plain:typescript",
+                    ]}
+                />
+                <Card
+                    title="Check my Github"
+                    description="Please check my Github to see my work, or you can stalk my projects as much as you want 😁"
+                    href="https://github.com/Theskrtnerd?tab=repositories"
+                    iconNames={["fa:github-square"]}
+                />
             </div>
         </div>
     </div>
     <script>
-        import '../scripts/cards.js'
+        import "../scripts/cards.js";
     </script>
 </BaseLayout>

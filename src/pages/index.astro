@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle="Home";
 import { styles } from "../styles/tailwindStyle";
 import Navbar from "../components/Navbar.astro";
-import { Icon } from "astro-icon";
+import { Icon } from 'astro-icon/components';
 import Background from "../components/Background.astro";
 import EDModel from "../components/EDModel.svelte";
 ---
@@ -24,11 +24,11 @@ import EDModel from "../components/EDModel.svelte";
 						<div class=`text-text ${styles.lgText}`>Please contact me using the following</div>
 					</div>
 					<div class="flex gap-4 md:gap-8 items-center">
-						<a href="https://www.linkedin.com/in/bach-tran-xineohperif/"  class="hover:-translate-y-1 ease-in-out duration-100 h-12 w-12 text-sec-500 hover:text-secondary">
-							<Icon name="bi:linkedin" class="rounded-lg"/>
+						<a href="https://www.linkedin.com/in/bach-tran-xineohperif/"  class="hover:-translate-y-1 ease-in-out duration-100 text-sec-500 hover:text-secondary">
+							<Icon name="bi:linkedin" class="rounded-lg h-12 w-12"/>
 						</a>
-						<a href="https://github.com/Theskrtnerd"  class="hover:-translate-y-1 ease-in-out duration-100 h-12 w-12 text-sec-500 hover:text-secondary" >
-							<Icon name="fa:github-square" />
+						<a href="https://github.com/Theskrtnerd"  class="hover:-translate-y-1 ease-in-out duration-100 text-sec-500 hover:text-secondary" >
+							<Icon name="fa:github-square" class="h-12 w-12" />
 						</a>
 						<a href="/resume.pdf" class=`px-8 md:px-16 justify-center border-2 border-sec-300 hover:-translate-y-1 ease-in-out duration-100 bg-primary rounded-xl py-4 flex items-center ${styles.lgText}`>
 							<div>My Resume</div>
